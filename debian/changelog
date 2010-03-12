@@ -1,0 +1,11 @@
+virtstatus (0.2) unstable; urgency=low
+
+  * image sizes reporting
+
+ --  Jan Horacek <jan.horacek@etnetera.cz>  Wed, 17 Jan 2007 10:40:27 +0100
+
+virtstatus (0.1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Jan Horacek <jan.horacek@etnetera.cz>  Thu, 11 Jan 2007 14:26:35 +0100

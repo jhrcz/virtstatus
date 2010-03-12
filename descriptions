@@ -1,0 +1,14 @@
+# /etc/virtstatus/descriptions
+#
+# description line columns:
+# #1 - virtualization type: xen | vserver
+# #2 - name (same as config file and xen/vserver name
+# #3 - description
+#
+# examples:
+# xen:hal2000:debian, oracle xe pro lokalni fatwire
+# vserver:mysql40:mysql v4.0
+#
+
+xen:test:testing xen domain
+vserver:test:testing vserver instance

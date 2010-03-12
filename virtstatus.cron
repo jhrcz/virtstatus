@@ -1,0 +1,6 @@
+# /etc/cron.d/virtstatus: crontab entries for the virtstatus package
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+* *    * * *   root	/usr/bin/virtstatus-html 1> /dev/shm/virtstatus.html 2>/dev/null
