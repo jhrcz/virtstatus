@@ -63,6 +63,19 @@ do
 	echo '</tr>'
 done
 echo "</table>"
+
+echo "<h2>KVM</h2>"
+echo "<table>"
+echo "<tr><th class=\"column1\">name</th><th class=\"column2\">status</th><th class=\"column3\">memory</th><th class=\"column4\">autostart</th><th>description </th></tr>"
+virsh list | tail -n +3 | awk '{print $2}' | while read i ; do  if virsh dumpxml $i 2>/dev/null | grep -q '<domain type=.kvm.' ; then echo $i ; fi ; done | while read line
+do
+	vs=$(echo "$line" | cut -d " " -f 1)
+	#line="$(echo "$line" | sed -e "s# #|#g" )|($(vserver-stat | grep " $vs$" | awk '{print $3}'))|$( if grep -q default /etc/vservers/$vs/apps/init/mark 2>/dev/null ; then echo "yes" ; fi )|$(grep "^vserver:$vs:" /etc/virtstatus/descriptions | cut -d : -f 3-)"
+	line="$vs|unknown|unknown|unknown|$(grep "^kvm:$vs:" /etc/virtstatus/descriptions | cut -d : -f 3-)"
+	echo "$line" | sed -e 's#^#<tr><td>#g' -e 's#|#</td><td>#g' -e 's#$#</td></tr>#g' | sed -e 's#stopped#<span style="color: red">stopped</span>#g'  -e 's#running#<span style="color: green">running</span>#g'
+done
+echo "</table>"
+
 echo "<h2>Notes</h2>"
 echo "<p>Description je ziskavano z /etc/virtstatus/descriptions</p>"
 echo "<div class=\"footer\"><tr>Generated: $(date)</div>"
