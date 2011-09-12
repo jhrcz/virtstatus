@@ -81,7 +81,14 @@ do
 	fi	
 	echo -n '</td>'
 	echo -n '<td>'
-	virsh dominfo $vs | grep "^Max memory:" | cut -d : -f 2-
+	mem_line=""
+	mem_line=$(virsh dominfo $vs | grep "^Max memory:" | cut -d : -f 2-)
+	if echo "$mem_line" | grep -q kB
+	then
+		echo $mem_line | while read a b ; do echo "$(( $a / 1024 )) MB" ; done
+	else
+		echo "$mem_line"
+	fi
 	echo -n '</td>'
 	echo -n '<td>'
 	#if test -f /etc/xen/auto/$vs.cfg 2>/dev/null
