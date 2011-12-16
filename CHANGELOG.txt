@@ -1,0 +1,4 @@
+release 0.3
+  * rpm packaging
+  * podpora pro kvm (vcetne mem info v MB, status i vypnutych)
+
