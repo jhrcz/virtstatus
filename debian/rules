@@ -23,8 +23,6 @@ endif
 configure: configure-stamp
 configure-stamp:
 	dh_testdir
-	# Add here commands to configure the package.
-
 	touch configure-stamp
 
 
@@ -32,21 +30,12 @@ build: build-stamp
 
 build-stamp: configure-stamp 
 	dh_testdir
-
-	# Add here commands to compile the package.
-	#$(MAKE)
-	#docbook-to-man debian/virtstatus.sgml > virtstatus.1
-
-	touch $@
+	touch build-stamp
 
 clean:
 	dh_testdir
 	dh_testroot
 	rm -f build-stamp configure-stamp
-
-	# Add here commands to clean up after the build process.
-	#-$(MAKE) clean
-
 	dh_clean 
 
 install: build
@@ -54,20 +43,7 @@ install: build
 	dh_testroot
 	dh_clean -k 
 	dh_installdirs
-
-	# Add here commands to install the package into debian/virtstatus.
-	#$(MAKE) DESTDIR=$(CURDIR)/debian/virtstatus install
-	mkdir -p $(CURDIR)/debian/virtstatus/usr/bin
-	mkdir -p $(CURDIR)/debian/virtstatus/etc/virtstatus
-	mkdir -p $(CURDIR)/debian/virtstatus/etc/cron.d/
-	cp descriptions  $(CURDIR)/debian/virtstatus/etc/virtstatus/
-	cp apache2.conf.inc  $(CURDIR)/debian/virtstatus/etc/virtstatus/
-	cp virtstatus-html  $(CURDIR)/debian/virtstatus/usr/bin/
-	cp virtstatus.cron  $(CURDIR)/debian/virtstatus/etc/cron.d/virtstatus
-	chmod +x  $(CURDIR)/debian/virtstatus/etc/cron.d/virtstatus
-
-
-
+	make install DESTDIR=debian/{{PROJNAME}}/ DISTFLAVOUR=deb
 # Build architecture-independent files here.
 binary-indep: build install
 # We have nothing to do by default.
@@ -86,7 +62,6 @@ binary-arch: build install
 #	dh_installemacsen
 #	dh_installpam
 #	dh_installmime
-#	dh_python
 #	dh_installinit
 #	dh_installcron
 #	dh_installinfo
@@ -96,6 +71,7 @@ binary-arch: build install
 	dh_compress
 	dh_fixperms
 #	dh_perl
+#	dh_python
 #	dh_makeshlibs
 	dh_installdeb
 	dh_shlibdeps

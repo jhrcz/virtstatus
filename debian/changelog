@@ -1,3 +1,9 @@
+virtstatus (0.3) unstable; urgency=low
+
+  * kvm podpora
+
+ --  Jan Horacek <jan.horacek@etnetera.cz> Fri, 16 Jan 2011 11:16:27 +0100
+
 virtstatus (0.2) unstable; urgency=low
 
   * image sizes reporting
