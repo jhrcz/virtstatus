@@ -1,4 +1,4 @@
 release 0.3
-  * rpm packaging
+  * rpm packaging - pripravy i symlink do httpd/conf.d jen nerestartuje
   * podpora pro kvm (vcetne mem info v MB, status i vypnutych)
 
