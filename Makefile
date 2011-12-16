@@ -26,7 +26,7 @@ step-install-log: test-destdir
 install-bin: step-install-bin
 #step-install-bin: test-destdir virtstatus.sh
 step-install-bin: test-destdir
-	install -D virtstatus.sh $(DESTDIR)/usr/sbin/virtstatus.sh
+	#install -D virtstatus.sh $(DESTDIR)/usr/sbin/virtstatus.sh
 	install -D virtstatus-html $(DESTDIR)/usr/bin/virtstatus-html
 	touch step-install-bin
 
