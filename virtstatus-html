@@ -12,7 +12,7 @@ body {color: black; background: white; }
 th {color: white; background: black; text-align: left; }
 table {border-collapse: collapse; }
 td {border-bottom: #eee solid 1px; vertical-align: top; }
-.column1 {width: 8em; }
+.column1 {width: 20em; }
 .column2 {width: 8em; }
 .column3 {width: 8em; }
 .column4 {width: 8em; }
