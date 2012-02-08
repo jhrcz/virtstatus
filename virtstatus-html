@@ -67,7 +67,7 @@ echo "</table>"
 
 echo "<h2>KVM</h2>"
 echo "<table>"
-echo "<tr><th class=\"column1\">name</th><th class=\"column2\">status</th><th class=\"column3\">memory</th><th class=\"column4\">autostart</th><th>description </th></tr>"
+echo "<tr><th class=\"column1\">name</th><th class=\"column2\">status</th><th class=\"column3\">memory</th><th class=\"column4\">autostart</th><th>bridge</th><th>description </th></tr>"
 virsh list --all | tail -n +3 | awk '{print $2}' | while read i ; do  if virsh dumpxml $i 2>/dev/null | grep -q '<domain type=.kvm.' ; then echo $i ; fi ; done | while read line
 do
 	vs=$(echo "$line" | cut -d " " -f 1)
@@ -101,6 +101,11 @@ do
 		echo enabled
 	fi
 	echo -n '</td>'
+
+	echo -n '<td>'
+	virsh dumpxml $vs | grep bridge= | cut -d "'" -f 2
+	echo -n '</td>'
+
 	echo -n '<td>'
 	grep "^kvm:$vs:" /etc/virtstatus/descriptions | cut -d : -f 3-
 	echo -n '</td>'
