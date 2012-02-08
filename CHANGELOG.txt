@@ -1,3 +1,7 @@
+release UNRELEASED
+  * rozsireni leveho sloupce pro jmeno
+  * zobrazeni bridge v kterem je kvm virtual
+
 release 0.3
   * rpm packaging - pripravy i symlink do httpd/conf.d jen nerestartuje
   * podpora pro kvm (vcetne mem info v MB, status i vypnutych)
