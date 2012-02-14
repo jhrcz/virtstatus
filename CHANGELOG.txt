@@ -1,4 +1,4 @@
-release UNRELEASED
+release 0.4
   * rozsireni leveho sloupce pro jmeno
   * zobrazeni bridge v kterem je kvm virtual
 

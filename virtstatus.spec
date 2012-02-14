@@ -1,6 +1,6 @@
 Name: 		virtstatus
-Version: 	0.3
-Release:	1%{?dist}
+Version: 	0.4
+Release:	0%{?dist}
 Summary:	Run virtstatus
 BuildArch: 	noarch
 
@@ -41,6 +41,9 @@ rm -rf $RPM_BUILD_ROOT
 ln -sf /etc/virtstatus/apache2.conf.inc /etc/httpd/conf.d/virtstatus.conf
 
 %changelog
+* Tue Feb 14 2012 <jahor@jhr.cz> 0.4
+- pro kvm zobrazeni do ktereho bridge virtual zapojen
+
 * Fri Dec 16 2011 <jahor@jhr.cz> 0.3
 - repackaging
 
